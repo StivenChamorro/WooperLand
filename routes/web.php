@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Article;
+use App\Controller\ArticleController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
