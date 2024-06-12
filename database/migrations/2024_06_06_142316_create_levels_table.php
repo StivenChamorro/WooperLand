@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('levels', function (Blueprint $table) {
             $table->id();
+            $table->String('name');
+            $table->String('prize');
+            $table->String('help');
+            $table->String('description');
+            
+            $table->unsignedBigInteger('topic_id')->nullable();
+
+            $table->foreign('topic_id')->references('id')->on('topics')->onDelete('cascade');
+            
             $table->timestamps();
         });
     }

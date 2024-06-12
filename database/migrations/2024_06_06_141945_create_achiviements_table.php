@@ -11,8 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
+        //tabla de logros
         Schema::create('achiviements', function (Blueprint $table) {
             $table->id();
+            $table->string('name');//nombre
+            $table->string('description');// descripcion
+            $table->string('prize');// premio
+        
+            $table->unsignedBigInteger('topic_id')->nullable();// tema
+
+            $table->foreign('topic_id')->references('id')->on('topics')->onDelete('cascade');
+            
+            
             $table->timestamps();
         });
     }
