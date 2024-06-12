@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Father extends Model
 {
     use HasFactory;
+
+    public function kid(){ 
+        return $this->hasOne('App\Models\Kid');
+    }
 }

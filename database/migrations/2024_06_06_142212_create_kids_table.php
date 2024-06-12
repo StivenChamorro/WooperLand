@@ -13,6 +13,20 @@ return new class extends Migration
     {
         Schema::create('kids', function (Blueprint $table) {
             $table->id();
+
+            $table->string('nombre');
+            $table->string('apellido');
+            $table->integer('edad');
+            $table->string('nickname');
+            $table->string('avatar');
+
+            $table->unsignedBigInteger('father_id')->unique();
+            $table->foreign('father_id')
+            ->references('id')
+            ->on('fathers')
+            ->onDelete('cascade')//el otro estado es SET_NULL
+            ->onUpdate('cascade');
+
             $table->timestamps();
         });
     }
